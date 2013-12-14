@@ -148,7 +148,7 @@ module.exports = function(grunt) {
                 subdir = subdir || "";
                 // ignore hidden file
                 if (filename.indexOf('.') === 0) {
-                    grunt.log.writeln('Ignore file: ' + filename);
+                    // grunt.log.writeln('Ignore file: ' + filename);
                     return;
                 }
                 if (grunt.file.isFile(abspath)) {
@@ -170,7 +170,7 @@ module.exports = function(grunt) {
                 tree = parseToTree(tree, options.md5);
             }
 
-            grunt.file.write(f.dest, JSON.stringify(tree));
+            grunt.file.write(f.dest, JSON.stringify(tree, null, 2));
             grunt.log.writeln('File "' + f.dest + '" created.');
         });
     });
